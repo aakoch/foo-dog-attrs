@@ -50,34 +50,82 @@ tap.test('attr-es2015', t => {
   t.end()
 })
 
+tap.test('attrs-data', t => {
+  const resolver = new AttrResolver()
+  const actual = resolver.resolve({ name: 'data-epoc', val: 'new Date(0)' })
+  t.same(actual, { name: 'data-epoc', val: '1970-01-01T00:00:00.000Z' })
+  t.end()
+})
 
+tap.test('include-with-text', t => {
+  const resolver = new AttrResolver()
+  const actual = resolver.resolve({"name":"src","val":"'/app.js'"})
+  t.same(actual, { name: 'src', val: '/app.js' })
+  t.end()
+})
 
-// tap.test('tag with nothing to resolve', t => {
-//   const resolver = new AttrResolver()
-//   const givenAndExpected = { type: 'tag', name: 'html' }
-//   const actual = resolver.resolve(givenAndExpected)
-//   t.same(actual, givenAndExpected)
-//   t.end()
-// })
+tap.test('include-with-text 2', t => {
+  const resolver = new AttrsResolver()
+  const actual = resolver.resolve([{"attrs": [
+    {
+      "name": "src",
+      "val": "'/app.js'"
+    }
+  ]}])
+  t.same(actual, [{ attrs: [{ name: 'src', val: '/app.js' }]}])
+  t.end()
+})
 
-// tap.test('attributes with nothing to resolve', t => {
-//   const resolver = new AttrResolver()
-//   const given = { type: 'tag', name: 'html', 'attrs': [{name: 'class', val: '"aclass"', mustEscape: false}] }
-//   const actual = resolver.resolve(given)
-//   t.same(actual, "class=\"aclass\"")
-//   t.end()
-// })
+tap.test('tag with nothing to resolve', t => {
+  const resolver = new AttrsResolver()
+  const givenAndExpected = [{ type: 'tag', name: 'html' }]
+  const actual = resolver.resolve(givenAndExpected)
+  t.same(actual, givenAndExpected)
+  t.end()
+})
 
-// tap.test('attributes with nothing to resolve', t => {
-//   const resolver = new AttrResolver()
-//   const given = [
-//     { type: 'unbuf_code', val: 'var needsResolved = "candy"' },
-//     { type: 'tag', name: 'html', 'attrs': [{name: 'class', val: 'needsResolved', mustEscape: false}] }
-//   ]
-//   const actual = resolver.resolve(given)
-//   t.same(actual, "class=\"aclass\"")
-//   t.end()
-// })
+tap.test('attributes with nothing to resolve', t => {
+  const resolver = new AttrsResolver()
+  const given = [{ type: 'tag', name: 'html', 'attrs': [{name: 'class', val: '"aclass"', mustEscape: false}] }]
+  const actual = resolver.resolve(given)
+  t.same(actual,[
+       {
+        "type": "tag",
+        "name": "html",
+        "attrs":  [
+           {
+            "name": "class",
+            "val": "aclass",
+            "mustEscape": false,
+          },
+        ],
+      },
+    ])
+  t.end()
+})
+
+tap.test('attributes with something to resolve', t => {
+  const resolver = new AttrsResolver()
+  const given = [
+    { type: 'unbuf_code', val: 'var needsResolved = "candy"' },
+    { type: 'tag', name: 'html', 'attrs': [{name: 'class', val: 'needsResolved', mustEscape: false}] }
+  ]
+  const actual = resolver.resolve(given)
+  t.same(actual,[
+       {
+        "type": "tag",
+        "name": "html",
+        "attrs":  [
+           {
+            "name": "class",
+            "val": "candy",
+            "mustEscape": false,
+          },
+        ],
+      },
+    ])
+  t.end()
+})
 
 // tap.test('pug runtime', t => {
 
