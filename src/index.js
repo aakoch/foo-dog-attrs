@@ -61,12 +61,13 @@ class AttrResolver {
       throw new Error('AttrResolver expects an object. Did you mean to call AttrsResolver?')
     }
 
-    if (!obj.hasOwnProperty('name')) {
-      throw new Error('AttrResolver expects an attribute object but this object doesn\'t have a name field')
-    }
+    // if (!obj.hasOwnProperty('name')) {
+    //   throw new Error('AttrResolver expects an attribute object but this object doesn\'t have a name field')
+    // }
 
     if (!obj.hasOwnProperty('val')) {
-      throw new Error('AttrResolver expects an attribute object but this object doesn\'t have a val field')
+      obj.val = true
+      // throw new Error('AttrResolver expects an attribute object but this object doesn\'t have a val field')
     }
     // let newAttrs = {}
 

@@ -24,9 +24,7 @@ function printUsage() {
   console.log(help.join('\n'))
 }
 
-
 const attrsResolver = new AttrsResolver()
-const attrResolver = new AttrResolver()
 
 function walk(arr) {
   debug('walk: arr=', util.inspect(arr, false, 10))
@@ -53,11 +51,13 @@ async function run() {
         let str = process.stdin.read();
         const inObj = JSON.parse(str)
         const obj = walk(inObj)
-        const jsonString = JSON.stringify(obj, null, '  ');
+        let jsonString
         if (options.out == 'stdout') {
+          jsonString = JSON.stringify(obj, null, '  ')
           process.stdout.write(jsonString)
         }
         else {
+          jsonString = JSON.stringify(obj);
           fs.writeFileSync(options.out, jsonString)
         }
       }
@@ -66,11 +66,13 @@ async function run() {
       const inObj = JSON.parse(fs.readFileSync(options.in.name, 'utf-8'))
       const obj = walk(inObj)
       if (options.out) {
-        let str = JSON.stringify(obj, null, '  ')
+        let str
         if (options.out.name == 'stdout') {
+          str = JSON.stringify(obj, null, '  ')
           process.stdout.write(str)
         }
         else {
+          str = JSON.stringify(obj);
           fs.writeFileSync(options.out.name, str)
         }
       }

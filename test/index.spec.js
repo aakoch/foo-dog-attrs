@@ -127,6 +127,19 @@ tap.test('attributes with something to resolve', t => {
   t.end()
 })
 
+tap.test(`[ { name: 'href', val: "'/contact'" } ]`, t => {
+  const resolver = new AttrsResolver()
+  const given = [ { name: 'href', val: "'/contact'" } ]
+  const actual = resolver.resolve(given)
+  t.same(actual,[
+       {
+        "name": "href",
+        "val": "'/contact'"
+      },
+    ])
+  t.end()
+})
+
 // tap.test('pug runtime', t => {
 
 //   // const lexed= [
