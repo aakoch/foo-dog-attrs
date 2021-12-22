@@ -2,15 +2,17 @@
   "name": "foo-dog-attrs",
   "version": "0.0.0",
   "description": "Run attributes",
-  "main": "index.js",
+  "main": "dist/index.cjs",
   "scripts": {
     "test": "tap"
   },
   "keywords": [
     "aakoch",
-    "pug"
+    "pug",
+    "foo-dog",
+    "foodog"
   ],
-  "author": "Adam Koch",
+  "author": "Adam Koch (aakoch)",
   "license": "ISC",
   "devDependencies": {
     "@istanbuljs/esm-loader-hook": "^0.1.2",
@@ -20,10 +22,7 @@
     "@aakoch/generator": "file:../generator",
     "@aakoch/utils": "file:../utils",
     "chalk": "^4.1.2",
-    "debug": "^4.3.3",
-    "pug-attrs": "^3.0.0",
-    "pug-code-gen": "^2.0.3",
-    "pug-runtime": "^3.0.1"
+    "debug": "^4.3.3"
   },
   "type": "module",
   "tap": {
