@@ -2,7 +2,8 @@
   "name": "foo-dog-attrs",
   "version": "0.0.0",
   "description": "Run attributes",
-  "main": "dist/index.cjs",
+  "source": "src/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "tap"
   },
@@ -16,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@istanbuljs/esm-loader-hook": "^0.1.2",
+    "parcel": "^2.0.1",
     "tap": "^15.1.5"
   },
   "dependencies": {
@@ -31,5 +33,15 @@
       "--experimental-loader",
       "@istanbuljs/esm-loader-hook"
     ]
+  },
+  "engines": {
+    "node": ">= 16.9.1",
+    "npm": ">= 7.21.1"
+  },
+  "targets": {
+    "main": {
+      "optimize": true,
+      "isLibrary": true
+    }
   }
 }
