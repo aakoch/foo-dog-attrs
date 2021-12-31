@@ -1,10 +1,12 @@
 {
-  "name": "foo-dog-attrs",
+  "name": "@foo-dog/attrs",
   "version": "0.0.0",
   "description": "Run attributes",
   "source": "src/index.js",
   "main": "dist/main.js",
+  "module": "dist/module.js",
   "scripts": {
+    "build": "parcel build",
     "test": "tap"
   },
   "keywords": [
@@ -26,7 +28,6 @@
     "chalk": "^4.1.2",
     "debug": "^4.3.3"
   },
-  "type": "module",
   "tap": {
     "node-arg": [
       "--no-warnings",
@@ -40,6 +41,10 @@
   },
   "targets": {
     "main": {
+      "optimize": true,
+      "isLibrary": true
+    },
+    "module": {
       "optimize": true,
       "isLibrary": true
     }
