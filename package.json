@@ -1,12 +1,13 @@
 {
   "name": "@foo-dog/attrs",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Run attributes",
   "source": "src/index.js",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "scripts": {
     "build": "parcel build",
+    "postversion": "git push && git push --tags",
     "test": "tap"
   },
   "keywords": [
