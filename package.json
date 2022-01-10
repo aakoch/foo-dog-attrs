@@ -9,7 +9,7 @@
   "scripts": {
     "build": "parcel build",
     "postversion": "git push && git push --tags",
-    "test": "tap"
+    "test": "c8 tap --no-coverage"
   },
   "keywords": [
     "aakoch",
@@ -20,22 +20,15 @@
   "author": "Adam Koch (aakoch)",
   "license": "ISC",
   "devDependencies": {
-    "@istanbuljs/esm-loader-hook": "^0.1.2",
+    "c8": "^7.11.0",
     "parcel": "^2.0.1",
     "tap": "^15.1.5"
   },
   "dependencies": {
     "@aakoch/generator": "file:../generator",
-    "@foo-dog/utils": "^0.2.0",
+    "@foo-dog/utils": "file:../utils",
     "chalk": "^4.1.2",
     "debug": "^4.3.3"
-  },
-  "tap": {
-    "node-arg": [
-      "--no-warnings",
-      "--experimental-loader",
-      "@istanbuljs/esm-loader-hook"
-    ]
   },
   "engines": {
     "node": ">= 16.9.1",

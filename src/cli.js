@@ -7,7 +7,7 @@ import chalk from 'chalk';
 import util from 'util'
 const __filename = fileURLToPath(import.meta.url);
 import { AttrResolver, AttrsResolver } from './index.js'
-import { parseArguments } from '@aakoch/utils'
+import { parseArguments } from '@foo-dog/utils'
 
 function printUsage() {
   const help = [''];
