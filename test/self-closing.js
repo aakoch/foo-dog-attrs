@@ -31,7 +31,7 @@ function runTest(testName, t) {
 
 tap.test('checkbox', t=> {
   const input = [{"source":"/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/html5.pug","type":"doctype","val":"html","lineNumber":1},{"source":"/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/html5.pug","name":"input","type":"tag","attrs":[{"name":"type","val":"checkbox"},{"name":"checked","val":true}],"lineNumber":2},{"source":"/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/html5.pug","name":"input","type":"tag","attrs":[{"name":"type","val":"checkbox"},{"name":"checked","val":true}],"lineNumber":3},{"source":"/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/html5.pug","name":"input","type":"tag","attrs":[{"name":"type","val":"checkbox"},{"name":"checked","val":false}],"lineNumber":4}]
-  const actual = generator.fromJson(input)
+  const actual = generator.fromObject(input)
   t.equal(actual, '<!DOCTYPE html><input type="checkbox" checked><input type="checkbox" checked><input type="checkbox">', "checkbox test failed")
   t.end()
 })
