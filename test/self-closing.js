@@ -1,7 +1,6 @@
 import tap from 'tap'
 import generator from '../../generator/src/index.js'
-import foo_dog_utils from '@foo-dog/utils'
-const { simpleProjectRootDir } = foo_dog_utils
+import { simpleProjectRootDir } from '@foo-dog/utils'
 import fs from 'fs'
 import path from 'path'
 // import { fileURLToPath } from 'url';

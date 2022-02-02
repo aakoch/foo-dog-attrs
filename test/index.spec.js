@@ -25,11 +25,11 @@ tap.test('simple arr', t => {
 tap.test('attr-es2015', t => {
   const resolver = new AttrsResolver()
   const actual = resolver.resolve([
-    { "source": "/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/attr-es2015.pug", "type": "code", "val": "var avatar = '219b77f9d21de75e81851b6b886057c7'", "lineNumber": 1 },
-    { "source": "/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/attr-es2015.pug", "name": "div", "type": "tag", "attrs": [{ "name": "class", "val": "\"avatar-div\"" }, { "name": "style", "val": "`background-image: url(https://www.gravatar.com/avatar/${avatar})`" }], "lineNumber": 3 }])
+    { "type": "code", "val": "var avatar = '219b77f9d21de75e81851b6b886057c7'", "lineNumber": 1 },
+    { "name": "div", "type": "tag", "attrs": [{ "name": "class", "val": "\"avatar-div\"" }, { "name": "style", "val": "`background-image: url(https://www.gravatar.com/avatar/${avatar})`" }], "lineNumber": 3 }])
   t.same(actual, [
     {
-      "source": "/Users/aakoch/projects/new-foo/workspaces/pug-lexing-transformer/test/pug/attr-es2015.pug",
+      "source": "workspaces/pug-lexing-transformer/test/pug/attr-es2015.pug",
       "name": "div",
       "type": "tag",
       "attrs": [
@@ -200,3 +200,5 @@ tap.test(`[ { name: 'href', val: "'/contact'" } ]`, t => {
 //     template + '\n' + 'return ' + templateName + ';'
 //   )(runtime);
 // }
+
+
