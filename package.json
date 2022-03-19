@@ -25,7 +25,7 @@
     "tap": "^15.1.5"
   },
   "dependencies": {
-    "@aakoch/generator": "file:../generator",
+    "@foo-dog/generator": "file:../generator",
     "@foo-dog/utils": "file:../utils",
     "chalk": "^4.1.2",
     "debug": "^4.3.3"
