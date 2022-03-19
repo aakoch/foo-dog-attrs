@@ -29,7 +29,7 @@ tap.test('attr-es2015', t => {
     { "name": "div", "type": "tag", "attrs": [{ "name": "class", "val": "\"avatar-div\"" }, { "name": "style", "val": "`background-image: url(https://www.gravatar.com/avatar/${avatar})`" }], "lineNumber": 3 }])
   t.same(actual, [
     {
-      "source": "workspaces/pug-lexing-transformer/test/pug/attr-es2015.pug",
+      "source": "workspaces/lexing-transformer/test/pug/attr-es2015.pug",
       "name": "div",
       "type": "tag",
       "attrs": [
