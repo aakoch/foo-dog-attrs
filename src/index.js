@@ -99,40 +99,6 @@ class AttrResolver {
 
         delete obj.code
 
-      //   debug('callAttrs: attrs=', obj.attrs)
-    
-      //   var result, finalResult;
-      //   // HTML MODE
-      //   result = compileAttrs([{ name: 'unbuf_code', val: 'var needsResolved = "candy"', mustEscape: false }], {
-      //     terse:   true,
-      //     format:  'object',
-      //     runtime: function (name) { return 'pugRuntime.' + name; }
-      //   });
-
-      //   // result = compileAttrs(obj.attrs, {
-      //   //   terse:   true,
-      //   //   format:  'html',
-      //   //   runtime: function (name) { return 'pugRuntime.' + name; }
-      //   // });
-      //   //=> '" foo=\\"bar\\"" + pugRuntime.attr("baz", getBaz(), true, true) + " quux"'
-      //   debug('result=', result)
-    
-      //   finalResult = Function('pugRuntime', 'user', 'id', 'bar', 'baz', 'object', 'answer', 'return (' + result + ');' );
-      //   debug('finalResult=', finalResult.toString())
-    
-      //   let attResult = finalResult(pugRuntime, obj).trim();
-      //   // => ' foo="bar" baz="baz&lt;&gt;" quux'
-      //   debug('attResult=', attResult)
-      //   return attResult
-
-        // const js = 'var needsResolved = "candy"'
-        // const attrs = [{name: 'class', val: 'needsResolved'}]
-        
-        // const func = Function('param1', obj. + '; return ' + attrs[0].val);
-        // console.log(func.toString())
-        // const newAttrVal = func()
-        // newAttrs[attrs.name] = newAttrVal
-
       } 
       catch (e) {
         console.error(e)
