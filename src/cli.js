@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import fs from 'fs'
 import path from 'path';
 import debugFunc from 'debug'
-const debug = debugFunc('foo-dog-attrs:cli')
+const debug = debugFunc('attrs:cli')
 import chalk from 'chalk';
 import util from 'util'
 const __filename = fileURLToPath(import.meta.url);
@@ -40,7 +40,6 @@ function walk(arr) {
   }
   return arr
 }
-
 
 async function run() {
   const options = await parseArguments(process, printUsage)

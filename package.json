@@ -1,10 +1,9 @@
 {
   "name": "@foo-dog/attrs",
-  "version": "0.2.2",
-  "description": "Run attributes",
+  "version": "0.1.0",
+  "description": "Foo Dog attributes parser",
   "source": "src/index.js",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "parcel build",
@@ -21,7 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "c8": "^7.11.0",
-    "parcel": "^2.0.1",
+    "parcel": "^2.3.2",
     "tap": "^15.1.5"
   },
   "dependencies": {
@@ -38,14 +37,6 @@
     "main": {
       "optimize": true,
       "isLibrary": true
-    },
-    "module": {
-      "optimize": true,
-      "isLibrary": true
     }
-  },
-  "exports": {
-    "import": "./dist/module.js",
-    "require": "./dist/main.js"
   }
 }

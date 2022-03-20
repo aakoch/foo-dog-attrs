@@ -11,7 +11,7 @@ mv build/test/json/*.json ../generator/test/json/
 
 More recent:
 ```
-cd foo-dog-attrs
+cd attrs
 rm -rf build/ && mkdir build && cp -R ../lexing-transformer/build/*.json build
 for f in $(ls build/*.json); do node src/cli $f build/$f 2> $f.err; done
 ```

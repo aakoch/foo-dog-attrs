@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import fs from 'fs'
 import path from 'path';
 import debugFunc from 'debug'
-const debug = debugFunc('foo-dog-attrs:cliTransformer')
+const debug = debugFunc('attrs:cliTransformer')
 import chalk from 'chalk';
 const __filename = fileURLToPath(import.meta.url);
 import { AttrsResolver } from './index.js'
