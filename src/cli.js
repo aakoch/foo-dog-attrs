@@ -1,13 +1,15 @@
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 import fs from 'fs'
 import path from 'path';
 import debugFunc from 'debug'
+
 const debug = debugFunc('attrs:cli')
 import chalk from 'chalk';
 import util from 'util'
+
 const __filename = fileURLToPath(import.meta.url);
-import { AttrResolver, AttrsResolver } from './index.js'
-import { parseArguments } from '@foo-dog/utils'
+import {AttrResolver, AttrsResolver} from './index.js'
+import {parseArguments} from '@foo-dog/utils'
 
 function printUsage() {
   const help = [''];
@@ -45,32 +47,29 @@ async function run() {
   const options = await parseArguments(process, printUsage)
   // console.log(options)
   try {
-    if (options.in.name == 'stdin') {
-      while(true) {
-        let str = process.stdin.read();
+    if (options.in.name === 'stdin') {
+      let str;
+      while (null !== (str = process.stdin.read())) {
         const inObj = JSON.parse(str)
         const obj = walk(inObj)
         let jsonString
-        if (options.out == 'stdout') {
+        if (options.out.name === 'stdout') {
           jsonString = JSON.stringify(obj, null, '  ')
           process.stdout.write(jsonString)
-        }
-        else {
+        } else {
           jsonString = JSON.stringify(obj);
           fs.writeFileSync(options.out, jsonString)
         }
       }
-    }
-    else {
+    } else {
       const inObj = JSON.parse(fs.readFileSync(options.in.name, 'utf-8'))
       const obj = walk(inObj)
       if (options.out) {
         let str
-        if (options.out.name == 'stdout') {
+        if (options.out.name === 'stdout') {
           str = JSON.stringify(obj, null, '  ')
           process.stdout.write(str)
-        }
-        else {
+        } else {
           str = JSON.stringify(obj);
           fs.writeFileSync(options.out.name, str)
         }
@@ -80,8 +79,7 @@ async function run() {
     if (chalk.stderr.supportsColor) {
       console.error(chalk.stderr(chalk.red(e.message)))
       console.error(e)
-    }
-    else {
+    } else {
       console.error('*'.repeat(30) + '\n' + e.message)
       console.error(e)
     }
