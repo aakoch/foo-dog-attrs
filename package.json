@@ -8,7 +8,7 @@
   "scripts": {
     "build": "parcel build",
     "postversion": "git push && git push --tags",
-    "test": "c8 tap --no-coverage"
+    "test": "tap"
   },
   "keywords": [
     "aakoch",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "c8": "^7.11.0",
     "parcel": "^2.3.2",
-    "tap": "^15.1.5"
+    "tap": "^18.7.3"
   },
   "dependencies": {
     "@foo-dog/generator": "file:../generator",
@@ -38,5 +38,8 @@
       "optimize": true,
       "isLibrary": true
     }
+  },
+  "tap": {
+    "allow-incomplete-coverage": true
   }
 }
